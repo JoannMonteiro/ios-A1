@@ -9,11 +9,31 @@ import UIKit
 
 class InputViewController: UIViewController {
 
+    @IBOutlet weak var nameField: UITextField!
+    
+    @IBOutlet weak var studentField: UITextField!
+    @IBOutlet weak var outputLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func submitPressed(_ sender: UIButton) {
+
+            let name = nameField.text ?? ""
+            let student = studentField.text ?? ""
+
+            outputLabel.text = "Name: \(name)\nStudent #: \(student)"
+
+            let alert = UIAlertController(
+                title: "Success",
+                message: "Information Submitted",
+                preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+            present(alert, animated: true)
+        }
     
 
     /*
